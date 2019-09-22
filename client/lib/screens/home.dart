@@ -23,9 +23,9 @@ class HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(left: 16, top: 56),
+                      padding: EdgeInsets.only(left: 16, top: 50),
                       child: Text('Hi Kathnrie',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 30, fontFamily: 'RalewayRegular', color: Colors.white),
                       )
                     ),
                   ],
