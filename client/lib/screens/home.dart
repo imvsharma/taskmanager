@@ -9,38 +9,46 @@ class HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(250.0),
-        child: Container(
-          color: const Color(0xFF2C9AB0),
-          padding: EdgeInsets.only(left: 20, top: 40),
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                height: 250,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(left: 16, top: 50),
-                      child: Text('Hi Kathnrie',
-                        style: TextStyle(fontSize: 30, fontFamily: 'RalewayRegular', color: Colors.white),
-                      )
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-        
-      )
-      
-    );
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(250.0),
+            child: Container(
+              height: 250,
+              color: const Color(0xFF2C9AB0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 7,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 36),
+                        child: Text(
+                          'Hi Kathnrie',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontFamily: 'RalewayRegular',
+                              color: Colors.white),
+                        )),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                        padding: EdgeInsets.only(left: 30),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.redAccent,
+                          minRadius: 30,
+                          maxRadius: 30,
+                        )
+                        /* IconButton(
+                          icon: Icon(Icons.account_circle),
+                          onPressed: () {},
+                        ) */),
+                  )
+                ],
+              ),
+      ),
+    ));
   }
 }
-
 
 /* PreferredSize(
         preferredSize: Size.fromHeight(200.0),
