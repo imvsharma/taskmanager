@@ -1,0 +1,7 @@
+database:
+  username: uanwkpjx
+  password: 0888S74YHQthynkDWNRKD-gixNj07Tmy
+  host: salt.db.elephantsql.com
+  port: 5432
+  databaseName: uanwkpjx
+  isTemporary:  false
