@@ -10,17 +10,20 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(250.0),
+          
+          preferredSize: Size.fromHeight(300.0),
             child: Container(
-              height: 250,
+              
+              height: 300,
               color: const Color(0xFF2C9AB0),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Expanded(
                     flex: 7,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 36),
+                      padding: EdgeInsets.only(left: 36, top: 70),
                         child: Text(
                           'Hi Kathnrie',
                           style: TextStyle(
@@ -32,16 +35,18 @@ class HomeState extends State<Home> {
                   Expanded(
                     flex: 3,
                     child: Padding(
-                        padding: EdgeInsets.only(left: 30),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.redAccent,
-                          minRadius: 30,
-                          maxRadius: 30,
+                        padding: EdgeInsets.only(left: 30, top: 65),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          
+                          decoration: BoxDecoration(
+                            
+                            color: Colors.redAccent,
+                            shape: BoxShape.circle,
+                          ),
                         )
-                        /* IconButton(
-                          icon: Icon(Icons.account_circle),
-                          onPressed: () {},
-                        ) */),
+                      ),
                   )
                 ],
               ),
@@ -50,25 +55,4 @@ class HomeState extends State<Home> {
   }
 }
 
-/* PreferredSize(
-        preferredSize: Size.fromHeight(200.0),
-        child: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 16, top: 56),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.account_circle
-                    ),
-                  onPressed: (){},),
-                ),
-              
-            ],
-          ),
-          backgroundColor: const Color(0xFF2C9AB0),
-        ),
-      ), */
+
