@@ -1,3 +1,5 @@
+import './utils/configuration.dart';
+import './utils/db.connection.dart';
 import 'server.dart';
 
 /// This type initializes an application.
@@ -5,6 +7,7 @@ import 'server.dart';
 /// Override methods in this class to set up routes and initialize services like
 /// database connections. See http://aqueduct.io/docs/http/channel/.
 class TaskmanagerChannel extends ApplicationChannel {
+  ManagedContext context;
   /// Initialize services in this method.
   ///
   /// Implement this method to initialize services, read values from [options]
@@ -14,6 +17,15 @@ class TaskmanagerChannel extends ApplicationChannel {
   @override
   Future prepare() async {
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+    final config = TaskManagerConfiguration(options.configurationFilePath);
+    final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
+    final psc = PostgreSQLPersistentStore.fromConnectionInfo(
+      config.database.username,
+      config.database.password,
+      config.database.host,
+      config.database.port,
+      config.database.databaseName);
+    context = ManagedContext(dataModel, psc);
   }
 
   /// Construct the request channel.
@@ -22,6 +34,13 @@ class TaskmanagerChannel extends ApplicationChannel {
   /// of all [Request]s.
   ///
   /// This method is invoked after [prepare].
+  /// 
+  
+  Future willOpen() async {
+    final config = TaskManagerConfiguration(options.configurationFilePath);
+    await createDatabaseSchema(context, config.database.isTemporary);
+  }
+
   @override
   Controller get entryPoint {
     final router = Router();
