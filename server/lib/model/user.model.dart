@@ -1,4 +1,5 @@
 import '../server.dart';
+import './task.model.dart';
 
 class User extends ManagedObject<_User> implements _User {
 
@@ -22,5 +23,8 @@ class _User {
 
   @Column(unique: false, indexed: true)
   String lastname;
+
+  @Column()
+  ManagedSet<Task> tasks;
 
 }
