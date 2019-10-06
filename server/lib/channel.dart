@@ -2,6 +2,7 @@ import './utils/configuration.dart';
 import './utils/db.connection.dart';
 import 'server.dart';
 import './controllers/login.dart';
+import './controllers/signup.dart';
 
 /// This type initializes an application.
 ///
@@ -57,6 +58,10 @@ class TaskmanagerChannel extends ApplicationChannel {
     router
       .route('/user/login')
       .link(() => LoginController(context));
+
+    router
+      .route('/user/signup')
+      .link(() => SignupController(context));
 
     return router;
   }
