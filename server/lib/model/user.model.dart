@@ -24,7 +24,7 @@ class _User {
   @Column(unique: false, indexed: true)
   String lastname;
 
-  @Column()
+  
   ManagedSet<Task> tasks;
 
 }
